@@ -9,27 +9,48 @@
  * 棋盘
  */
 cc.Class({
+
+    /**
+     * @type {cc.Graphics}
+     */
+    _graphics: null,
+
     extends: cc.Component,
 
-    properties: {
-        graphics: {
-            type: cc.Graphics,
-            default: null
-        }
-    },
+    properties: {},
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        let graphics = this.graphics = new cc.Graphics();
-        graphics.circle(0, 0, 200);
+        /**
+         * @type {cc.Graphics}
+         */
+        this._graphics = this.getComponent(cc.Graphics);
         //添加颜色及透明度
-        let fillColor = cc.Color.RED;//声明一个颜色变量
-        fillColor.a = 200;//添加透明度
-        graphics.fillColor = fillColor;//填充
+        this._graphics.fillColor = cc.Color.RED;
 
-        graphics.stroke();
-        graphics.fill();
+        this._graphics.lineWidth = 1;
+        this._graphics.strokeColor = cc.Color.GRAY;
+
+        let width = this.node.parent.width;
+        let height = this.node.parent.height;
+
+        let step = 40;
+        for (let x = -width / 2; x < width / 2; x += step) {
+            this._graphics.moveTo(x, height / 2);
+            this._graphics.lineTo(x, -height / 2);
+        }
+        for (let y = -height / 2; y < height / 2; y += step) {
+            this._graphics.moveTo(width / 2, y);
+            this._graphics.lineTo(-width / 2, y);
+        }
+
+        this._graphics.stroke();
+
+        let r = 10;
+        this._graphics.circle(0, 0, r);
+        this._graphics.fill();
+
     },
 
     start() {
@@ -37,5 +58,6 @@ cc.Class({
 
     },
 
-    // update (dt) {},
+    update(dt) {
+    },
 });
