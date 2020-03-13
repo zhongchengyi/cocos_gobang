@@ -50,10 +50,10 @@ cc.Class({
         this._graphics.circle(0, 0, r);
         this._graphics.fill();
 
+
     },
 
     start() {
-        // cc.systemEvent.on(cc.SystemEvent.EventType.)
 
     },
 
