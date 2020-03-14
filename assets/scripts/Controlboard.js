@@ -32,5 +32,15 @@ cc.Class({
 
     },
 
+    /**
+     * 下棋确定
+     * @param x
+     * @param y
+     */
+    onDropChessSuccess: function ({x, y} = {}) {
+        console.log(arguments)
+        //TODO player 显棋子，判断输赢
+    }
+
     // update (dt) {},
 });

@@ -1,9 +1,16 @@
 const Checkerboard = require('Checkerboard')
 const Player = require('Player');
+const Controlboard = require('Controlboard')
+const UserEvent = require('UserEvent')
 
+/**
+ * @class
+ */
 cc.Class({
     extends: cc.Component,
 
+    /**
+     */
     properties: {
         /**
          * 棋盘
@@ -14,7 +21,7 @@ cc.Class({
             tooltip: '棋盘'
         },
         controlboard: {
-            type: cc.Node,
+            type: Controlboard,
             default: null,
             tooltip: '控制面板'
         },
@@ -38,7 +45,11 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        this.checkerboard.node.on(UserEvent.dropChessSuccess, ({x, y}) => {
+            this.controlboard.onDropChessSuccess({x, y});
+        })
+    },
 
     start() {
 

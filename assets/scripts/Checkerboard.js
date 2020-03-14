@@ -25,11 +25,6 @@ cc.Class({
          * @type {cc.Graphics}
          */
         this._graphics = this.getComponent(cc.Graphics);
-        //添加颜色及透明度
-        this._graphics.fillColor = cc.Color.RED;
-
-        // this._graphics.lineWidth = 1;
-        // this._graphics.strokeColor = cc.Color.BLACK;
 
         let width = this.node.width;
         let height = this.node.height;
@@ -49,11 +44,16 @@ cc.Class({
         this._graphics.circle(0, 0, r);
         this._graphics.fill();
 
-        this.node.on(cc.Node.EventType.MOUSE_DOWN, event => {
-            let pos = Utils.getGameLocation({event, node: this.node});
-            console.log(`${new Date().getTime()}: pos: ${pos}, idx : ${this._calcLocationIndex(pos)}`);
-            this.node.emit(UserEvent.dropChessSuccess, {})
-        });
+        this.node.on(cc.Node.EventType.MOUSE_DOWN,
+            /**
+             * @fires UserEvent.dropChessSuccessEvent
+             * @param event
+             */
+            event => {
+                let pos = Utils.getGameLocation({event, node: this.node});
+                console.log(`${new Date().getTime()}: pos: ${pos}, idx : ${this._calcLocationIndex(pos)}`);
+                this.node.emit(UserEvent.dropChessSuccess, {location: this._calcLocationIndex(pos)});
+            });
     },
 
     start() {
