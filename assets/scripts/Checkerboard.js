@@ -1,4 +1,5 @@
 const UserEvent = require('UserEvent')
+const Utils = require('Utils');
 
 /**
  * 棋盘
@@ -46,6 +47,8 @@ cc.Class({
         this._graphics.fill();
 
         this.node.on(cc.Node.EventType.MOUSE_DOWN, event => {
+            let pos = Utils.getGameLocation({event, node: this.node});
+            console.log(`${new Date()}: deltax : ${event.getDeltaX()}, dealtay : ${event.getDeltaY()}, pos: ${pos}`);
             this.node.emit(UserEvent.dropChessSuccess, {})
         });
     },
@@ -56,4 +59,8 @@ cc.Class({
 
     update(dt) {
     },
+
+    _calcLocationIndex({x, y} = {}) {
+
+    }
 });
