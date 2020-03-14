@@ -25,18 +25,18 @@ cc.Class({
         switch (this.bgType) {
             case 'white':
                 if (this.bgWhite) {
-                    this.bgWhite.active = true;
+                    this.bgWhite.node.active = true;
                 }
                 if (this.bgBlack) {
-                    this.bgBlack.active = false;
+                    this.bgBlack.node.active = false;
                 }
                 break;
             case 'black':
                 if (this.bgWhite) {
-                    this.bgWhite.active = false;
+                    this.bgWhite.node.active = false;
                 }
                 if (this.bgBlack) {
-                    this.bgBlack.active = true;
+                    this.bgBlack.node.active = true;
                 }
                 break;
         }
@@ -56,5 +56,6 @@ cc.Class({
     },
 
     update(dt) {
+        this._updateByType();
     },
 });

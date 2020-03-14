@@ -58,8 +58,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -82.469,
-        16.494,
+        0,
+        0,
         0,
         0,
         0,
@@ -344,6 +344,7 @@
     "bgBlack": {
       "__id__": 6
     },
+    "bgType": "black",
     "_id": ""
   },
   {
