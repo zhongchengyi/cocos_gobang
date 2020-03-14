@@ -6,18 +6,21 @@ const Utils = require('Utils');
  */
 cc.Class({
 
-    /**
-     * @type {cc.Graphics}
-     */
-    _graphics: null,
-
     extends: cc.Component,
 
     properties: {},
 
     // LIFE-CYCLE CALLBACKS:
 
+    /**
+     * @type {cc.Graphics}
+     */
+    _graphics: null,
+
     onLoad() {
+
+        this.step = 100;
+
         /**
          * @type {cc.Graphics}
          */
@@ -31,7 +34,7 @@ cc.Class({
         let width = this.node.width;
         let height = this.node.height;
 
-        let step = 100;
+        let step = this.step;
         for (let x = -width / 2; x <= width / 2; x += step) {
             this._graphics.moveTo(x, height / 2);
             this._graphics.lineTo(x, -height / 2);
@@ -48,7 +51,7 @@ cc.Class({
 
         this.node.on(cc.Node.EventType.MOUSE_DOWN, event => {
             let pos = Utils.getGameLocation({event, node: this.node});
-            console.log(`${new Date()}: deltax : ${event.getDeltaX()}, dealtay : ${event.getDeltaY()}, pos: ${pos}`);
+            console.log(`${new Date().getTime()}: pos: ${pos}, idx : ${this._calcLocationIndex(pos)}`);
             this.node.emit(UserEvent.dropChessSuccess, {})
         });
     },
@@ -61,6 +64,12 @@ cc.Class({
     },
 
     _calcLocationIndex({x, y} = {}) {
-
+        return {
+            ix: parseInt(x / this.step) + ((Math.abs(x % this.step) > this.step / 2) ? (x > 0 ? 1 : -1) : 0),
+            iy: parseInt(y / this.step) + ((Math.abs(y % this.step) > this.step / 2) ? (x > 0 ? 1 : -1) : 0),
+            toString: function () {
+                return `(${this.ix}, ${this.iy})`
+            }
+        }
     }
 });
