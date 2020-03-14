@@ -12,29 +12,31 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        playerName: {
+            default: "玩家名",
+            tooltip: '玩家名字',
+            notice() {
+                if (this._nameLabel) {
+                    this._nameLabel.text = this.playerName;
+                }
+            }
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        this._nameLabel = this.node.getComponent(cc.Label);
+        if (this._nameLabel) {
+            this._nameLabel.text = this.playerName;
+        }
+        this.node.on(cc.Node.EventType.MOUSE_DOWN, e => {
+            console.log(arguments)
+            this.node.off(cc.Node.EventType.MOUSE_DOWN);
+        });
+    },
 
     start() {
-
     },
 
     // update (dt) {},

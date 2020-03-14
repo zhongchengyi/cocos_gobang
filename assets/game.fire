@@ -81,13 +81,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 27
+        "__id__": 35
       },
       {
-        "__id__": 28
+        "__id__": 36
       },
       {
-        "__id__": 29
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -877,10 +877,23 @@
     "_children": [
       {
         "__id__": 25
+      },
+      {
+        "__id__": 27
+      },
+      {
+        "__id__": 30
       }
     ],
     "_active": true,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 33
+      },
+      {
+        "__id__": 34
+      }
+    ],
     "_prefab": null,
     "_opacity": 255,
     "_color": {
@@ -1024,6 +1037,198 @@
     "_id": "e9Zjcvk/VC+YiOXaxqUjkJ"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "player1",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 24
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 28
+      }
+    ],
+    "_prefab": {
+      "__id__": 29
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "2f7zPo2vBMd7EP08Z5fq/N"
+  },
+  {
+    "__type__": "bff9asjAi1Hl6Sq3ivJVxKx",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 27
+    },
+    "_enabled": true,
+    "playerName": "玩家1",
+    "_id": "beT7Bog4FOsqyZ/kFACsvO"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 27
+    },
+    "asset": {
+      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+    },
+    "fileId": "2f7zPo2vBMd7EP08Z5fq/N",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Player2",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 24
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 31
+      }
+    ],
+    "_prefab": {
+      "__id__": 32
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "9fIGO5plpGqrfqelbEu7hV"
+  },
+  {
+    "__type__": "bff9asjAi1Hl6Sq3ivJVxKx",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 30
+    },
+    "_enabled": true,
+    "playerName": "玩家2",
+    "_id": "0420vhEW9FZ4hYe9wPrtdb"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 30
+    },
+    "asset": {
+      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+    },
+    "fileId": "2f7zPo2vBMd7EP08Z5fq/N",
+    "sync": false
+  },
+  {
+    "__type__": "f686bJfV0tN36MEu7bPkHk0",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 24
+    },
+    "_enabled": true,
+    "_id": "a9GCNVOSxB2L0SHPLoJVZv"
+  },
+  {
+    "__type__": "f686bJfV0tN36MEu7bPkHk0",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 24
+    },
+    "_enabled": true,
+    "_id": "f1xv5xdfBAyZKCImhHKB/M"
+  },
+  {
     "__type__": "cc.Canvas",
     "_name": "",
     "_objFlags": 0,
@@ -1078,8 +1283,13 @@
     "checkerboard": {
       "__id__": 11
     },
-    "player1": null,
-    "player2": null,
+    "controlboard": null,
+    "player1": {
+      "__id__": 28
+    },
+    "player2": {
+      "__id__": 31
+    },
     "_id": "edR0UUuNdAV6A71gVLHEKl"
   }
 ]

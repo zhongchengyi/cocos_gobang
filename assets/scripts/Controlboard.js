@@ -8,7 +8,11 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        this.node.on('current-user-changed', e => {
+            console.log(arguments)
+        })
+    },
 
     start() {
 
