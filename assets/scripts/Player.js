@@ -31,8 +31,8 @@ cc.Class({
             this._nameLabel.text = this.playerName;
         }
         this.node.on(cc.Node.EventType.MOUSE_DOWN, e => {
-            console.log(arguments)
             this.node.off(cc.Node.EventType.MOUSE_DOWN);
+            this.node.emit('user-decision', {player: this})
         });
     },
 

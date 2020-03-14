@@ -1,29 +1,14 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+const Checkerboard = require('Checkerboard');
+const UserEvent = require('UserEvent');
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        checkerboard: {
+            type: Checkerboard,
+            default: null,
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -36,9 +21,10 @@ cc.Class({
             this.node.x += delta.x;
             this.node.y += delta.y;
         });
-        // this.node.on(cc.Node.EventType.TOUCH_START, e => {
-        //     cc.log(e);
-        // })
+
+        this.checkerboard.node.on(UserEvent.dropChessSuccess, event => {
+            console.log(event)
+        })
     },
 
     // update (dt) {},
