@@ -24,24 +24,24 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 5
+        "__id__": 6
       }
     ],
     "_prefab": {
-      "__id__": 6
+      "__id__": 7
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 247,
+      "g": 14,
+      "b": 14,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 100,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -79,7 +79,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "nameLable",
+    "_name": "nameLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -89,10 +89,13 @@
     "_components": [
       {
         "__id__": 3
+      },
+      {
+        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 5
     },
     "_opacity": 255,
     "_color": {
@@ -104,7 +107,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 97.87,
+      "width": 95.8,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -160,8 +163,10 @@
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "bda5ebfc-0ef6-482d-ad95-a7005955141a"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -174,6 +179,19 @@
     "_id": ""
   },
   {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [],
+    "playOnLoad": true,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -181,7 +199,7 @@
     "asset": {
       "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
     },
-    "fileId": "b9H1HtBupGOYob2aufe6sJ",
+    "fileId": "7bPHFA0mhMD4tffi51WqCA",
     "sync": false
   },
   {
@@ -192,7 +210,11 @@
       "__id__": 1
     },
     "_enabled": true,
-    "playerName": "玩家名",
+    "nameLabel": {
+      "__id__": 3
+    },
+    "playerName": "玩家1",
+    "thinking": false,
     "_id": ""
   },
   {
