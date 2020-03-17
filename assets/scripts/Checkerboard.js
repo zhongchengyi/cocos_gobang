@@ -51,8 +51,9 @@ cc.Class({
              */
             event => {
                 let pos = Utils.getGameLocation({event, node: this.node});
-                console.log(`${new Date().getTime()}: pos: ${pos}, idx : ${this._calcLocationIndex(pos)}`);
-                this.node.emit(UserEvent.dropChessSuccess, {location: this._calcLocationIndex(pos)});
+                let px = this._calcLocationIndex(pos);
+                console.log(`${new Date().getTime()}: pos: ${pos}, idx : ( ${px.ix}, ${px.iy})`);
+                this.node.emit(UserEvent.dropChessSuccess, {x: px.ix, y: px.iy});
             });
     },
 
@@ -66,10 +67,24 @@ cc.Class({
     _calcLocationIndex({x, y} = {}) {
         return {
             ix: parseInt(x / this.step) + ((Math.abs(x % this.step) > this.step / 2) ? (x > 0 ? 1 : -1) : 0),
-            iy: parseInt(y / this.step) + ((Math.abs(y % this.step) > this.step / 2) ? (x > 0 ? 1 : -1) : 0),
+            iy: parseInt(y / this.step) + ((Math.abs(y % this.step) > this.step / 2) ? (y > 0 ? 1 : -1) : 0),
             toString: function () {
                 return `(${this.ix}, ${this.iy})`
             }
         }
+    },
+
+
+    /**
+     *
+     * @param {int} x
+     * @param {int} y
+     * @param {cc.Prefab} prefab
+     */
+    showChess({x, y, prefab} = {}) {
+        let chess = cc.instantiate(prefab);
+        chess.x = x * this.step;
+        chess.y = y * this.step;
+        this.node.addChild(chess);
     }
 });

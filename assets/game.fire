@@ -81,13 +81,13 @@
     "_active": true,
     "_components": [
       {
+        "__id__": 52
+      },
+      {
         "__id__": 53
       },
       {
         "__id__": 54
-      },
-      {
-        "__id__": 55
       }
     ],
     "_prefab": null,
@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        349.86883847065405,
+        465.05564183224357,
         0,
         0,
         0,
@@ -1267,9 +1267,6 @@
     "_components": [
       {
         "__id__": 51
-      },
-      {
-        "__id__": 52
       }
     ],
     "_prefab": null,
@@ -1653,6 +1650,7 @@
       "__id__": 40
     },
     "playerName": "玩家1",
+    "thinking": false,
     "_id": "5absLq0zxJ6o2je7+f9SAV"
   },
   {
@@ -1855,6 +1853,7 @@
       "__id__": 46
     },
     "playerName": "玩家2",
+    "thinking": false,
     "_id": "b0q5Ww+OJBQ79U699LpOz+"
   },
   {
@@ -1909,18 +1908,13 @@
     },
     "_enabled": true,
     "players": [],
-    "_id": "a9GCNVOSxB2L0SHPLoJVZv"
-  },
-  {
-    "__type__": "f686bJfV0tN36MEu7bPkHk0",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 34
+    "checkerboard": {
+      "__id__": 11
     },
-    "_enabled": true,
-    "players": [],
-    "_id": "f1xv5xdfBAyZKCImhHKB/M"
+    "chessPrefab": {
+      "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
+    },
+    "_id": "a9GCNVOSxB2L0SHPLoJVZv"
   },
   {
     "__type__": "cc.Canvas",
@@ -1981,7 +1975,7 @@
       "__id__": 51
     },
     "player1": {
-      "__id__": 56
+      "__id__": 55
     },
     "player2": null,
     "_id": "edR0UUuNdAV6A71gVLHEKl"
@@ -1994,6 +1988,7 @@
     "_enabled": true,
     "nameLabel": null,
     "playerName": "玩家1",
+    "thinking": false,
     "_id": "beT7Bog4FOsqyZ/kFACsvO"
   }
 ]
