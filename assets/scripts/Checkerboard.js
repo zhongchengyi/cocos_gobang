@@ -44,17 +44,20 @@ cc.Class({
         this._graphics.circle(0, 0, r);
         this._graphics.fill();
 
-        this.node.on(cc.Node.EventType.MOUSE_DOWN,
-            /**
-             * @fires UserEvent.dropChessSuccessEvent
-             * @param event
-             */
-            event => {
-                let pos = Utils.getGameLocation({event, node: this.node});
-                let px = this._calcLocationIndex(pos);
-                console.log(`${new Date().getTime()}: pos: ${pos}, idx : ( ${px.ix}, ${px.iy})`);
-                this.node.emit(UserEvent.dropChessSuccess, {x: px.ix, y: px.iy});
-            });
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onClickBoard.bind(this));
+        this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClickBoard.bind(this));
+
+    },
+
+    /**
+     * @fires UserEvent.dropChessSuccessEvent
+     * @param event
+     */
+    onClickBoard(event) {
+        let pos = Utils.getGameLocation({event, node: this.node});
+        let px = this._calcLocationIndex(pos);
+        console.log(`${new Date().getTime()}: pos: ${pos}, idx : ( ${px.ix}, ${px.iy})`);
+        this.node.emit(UserEvent.dropChessSuccess, {x: px.ix, y: px.iy});
     },
 
     start() {
