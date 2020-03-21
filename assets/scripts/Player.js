@@ -23,28 +23,16 @@ cc.Class({
             type: cc.Prefab,
             default: null,
             tooltip: '棋子的预制体',
-            notice() {
-                this._updateChessType();
-            }
         },
         chessType: {
             type: ChessType,
             default: ChessType.white,
             tooltip: '棋子的颜色',
-            notice() {
-                this._updateChessType();
-            }
         },
         thinking: {
             default: false,
             tooltip: '思考中',
         },
-    },
-
-    _updateChessType() {
-        if (this.chessPrefab) {
-            this.chessPrefab.chessType = this.chessType;
-        }
     },
 
     // LIFE-CYCLE CALLBACKS:

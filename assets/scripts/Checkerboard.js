@@ -44,8 +44,7 @@ cc.Class({
         this._graphics.circle(0, 0, r);
         this._graphics.fill();
 
-        // this.node.on(cc.Node.EventType.TOUCH_END, this.onClickBoard.bind(this));
-        this.node.on(cc.Node.EventType.MOUSE_DOWN, this.onClickBoard.bind(this));
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onClickBoard.bind(this));
 
     },
 
