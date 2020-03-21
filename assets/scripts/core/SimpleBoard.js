@@ -1,9 +1,11 @@
-const linq = require('linq')
+import Role from "./role";
+
+const linq = require('../linq')
 
 /**
  * 棋盘的算法
  */
-class Board {
+class SimpleBoard {
     /**
      *
      * @param {int} size 棋盘的大小
@@ -23,12 +25,19 @@ class Board {
          * 棋盘内容
          */
         this.borad = linq.repeat(linq.repeat(0, size).toArray(), size).toArray()
+
+        this.cache = {
+            [Role.com]: [],
+            [Role.hum]: []
+        }
     }
 
-    put({x, y, chessType}) {
-        console.log(`x: ${x}, y: ${y}, type: ${chessType}`);
+    put({x, y, role}) {
+        console.log(`x: ${x}, y: ${y}, type: ${role}`);
+        this.cache[role][x][y] = 1;
     }
+
 
 }
 
-export default Board;
+export default SimpleBoard;

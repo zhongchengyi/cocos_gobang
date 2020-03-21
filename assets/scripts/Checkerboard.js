@@ -1,4 +1,4 @@
-import Board from "./Board";
+import Board from "./core/Board";
 
 const UserEvent = require('UserEvent')
 const Utils = require('Utils');
@@ -32,8 +32,8 @@ cc.Class({
 
         let size = Math.min(this.node.width, this.node.height);
         let step = this.step;
-        this.boarder = new Board(size / step + 1);
-        this.offsetToScoreXY = {x: size / step / 2, y: -size / step / 2};
+        this.board = Board;
+        this.board.init(size / step + 1)
 
         for (let x = -size / 2; x <= size / 2; x += step) {
             this._graphics.moveTo(x, size / 2);
@@ -99,12 +99,9 @@ cc.Class({
             this.chessMap[x] = {};
         }
         this.chessMap[x][y] = chessType;
-        let scrolXY = this._toScroeXY({x, y});
-        this.boarder.put({...scrolXY, chessType});
+        this.board.put({x, y, chessType});
         this.node.addChild(chess);
     },
 
-    _toScroeXY({x, y}) {
-        return {x: x + this.offsetToScoreXY.x, y: -(y + this.offsetToScoreXY.y)};
-    }
+
 });

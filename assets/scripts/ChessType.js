@@ -1,7 +1,9 @@
 /**
  * @type {{white: number, black: number}}
  */
+import R from "./core/role";
+
 module.exports = cc.Enum({
-    white: 1,
-    black: 2,
+    white: R.com,
+    black: R.hum,
 });
