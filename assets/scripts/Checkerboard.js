@@ -60,7 +60,6 @@ cc.Class({
     onClickBoard(event) {
         let pos = Utils.getGameLocation({event, node: this.node});
         let px = this._calcLocationIndex(pos);
-        console.log(`${new Date().getTime()}: pos: ${pos}, idx : ( ${px.ix}, ${px.iy})`);
         if (this.chessMap[px.ix] && this.chessMap[px.ix][px.iy]) {
             return;
         }

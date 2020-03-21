@@ -23,7 +23,6 @@ cc.Class({
         });
 
         this.checkerboard.node.on(UserEvent.dropChessSuccess, event => {
-            console.log(event)
         })
     },
 
