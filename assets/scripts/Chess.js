@@ -1,3 +1,5 @@
+import FlickerAction from "./FlickerAction";
+
 const ChessType = require('ChessType');
 
 
@@ -19,8 +21,18 @@ cc.Class({
         chessType: {
             type: ChessType,
             default: ChessType.white,
-            notice() {
+            notify() {
                 this._updateByType();
+            }
+        },
+        flicker: {
+            default: false,
+            notify() {
+                if (this.flicker) {
+                    FlickerAction.runFlicker(this.node)
+                } else {
+                    FlickerAction.stopFlicker(this.node)
+                }
             }
         }
     },

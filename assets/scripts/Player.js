@@ -1,4 +1,5 @@
 import PlayerWinState from "./states/PlayerWinState";
+import FlickerAction from "./FlickerAction";
 
 const ChessType = require('ChessType');
 /**
@@ -65,11 +66,10 @@ cc.Class({
                     ).repeatForever();
                 }
                 if (this.thinking) {
+                    FlickerAction.runFlicker(this.nameLabel.node)
                     this.nameLabel.node.runAction(this.thinkingAction);
                 } else {
-                    if (this.nameLabel.node.getNumberOfRunningActions() > 0) {
-                        this.nameLabel.node.stopAction(this.thinkingAction);
-                    }
+                    FlickerAction.stopFlicker(this.nameLabel.node)
                 }
             }
         },
@@ -112,22 +112,24 @@ cc.Class({
 
     /**
      * 创建当前玩家的棋子
-     * @returns {cc.Node}
+     * @return {{chess: cc.Node, chessType: properties.chessType|{type, default, tooltip, notify}|*|{type, default, notice}, script: any}}
      */
     createChess() {
         let chess = cc.instantiate(this.chessPrefab);
         let script = chess.getComponent('Chess');
         script.chessType = this.chessType;
-        return {chess, chessType: script.chessType};
+        return {chess, chessType: script.chessType, script};
     },
 
     _updateChessState() {
         if (this.chessHost && this.chessPrefab && this.chessType !== null) {
-            let chess = this.createChess().chess;
+            let chess = this.createChess();
             // chess.width = 100;
             // chess.height = 100;
+            let script = chess.script
+            script.flicker = true;
             this.chessHost.removeAllChildren();
-            this.chessHost.addChild(chess);
+            this.chessHost.addChild(chess.chess);
         }
     },
 
