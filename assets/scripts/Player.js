@@ -74,6 +74,6 @@ cc.Class({
         let chess = cc.instantiate(this.chessPrefab);
         let script = chess.getComponent('Chess');
         script.chessType = this.chessType;
-        return chess;
+        return {chess, chessType: script.chessType};
     }
 });

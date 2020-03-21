@@ -1,5 +1,6 @@
 const UserEvent = require('UserEvent')
 const Utils = require('Utils');
+const ChessType = require('ChessType')
 
 /**
  * 棋盘
@@ -20,6 +21,13 @@ cc.Class({
     onLoad() {
 
         this.step = 100;
+        //[x][y] chesstype
+        this.chessMap = {};
+        //
+        this.chessTypeLocations = {
+            [ChessType.white]: [],
+            [ChessType.black]: []
+        };
 
         /**
          * @type {cc.Graphics}
@@ -56,6 +64,9 @@ cc.Class({
         let pos = Utils.getGameLocation({event, node: this.node});
         let px = this._calcLocationIndex(pos);
         console.log(`${new Date().getTime()}: pos: ${pos}, idx : ( ${px.ix}, ${px.iy})`);
+        if (this.chessMap[px.ix] && this.chessMap[px.ix][px.iy]) {
+            return;
+        }
         this.node.emit(UserEvent.dropChessSuccess, {x: px.ix, y: px.iy});
     },
 
@@ -82,10 +93,16 @@ cc.Class({
      * @param {int} x
      * @param {int} y
      * @param {cc.Node} chess
+     * @param {ChessType} chessType
      */
-    showChess({x, y, chess} = {}) {
+    showChess({x, y, chess, chessType} = {}) {
         chess.x = x * this.step;
         chess.y = y * this.step;
+        if (!this.chessMap[x]) {
+            this.chessMap[x] = {};
+        }
+        this.chessMap[x][y] = chessType;
+        this.chessTypeLocations[chessType].push({x, y});
         this.node.addChild(chess);
     }
 });

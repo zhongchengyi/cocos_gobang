@@ -57,7 +57,7 @@ cc.Class({
      * @param y
      */
     onDropChessSuccess: function ({x, y} = {}) {
-        this.checkerboard.showChess({x, y, chess: this.currentPlyer.createChess()});
+        this.checkerboard.showChess({x, y, ...this.currentPlyer.createChess()});
         this._switchCurrentPlayer();
         //TODO player 显棋子，判断输赢
     },
