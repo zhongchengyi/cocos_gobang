@@ -146,7 +146,7 @@
   },
   {
     "__type__": "cc.Label",
-    "_name": "",
+    "_name": "nameLabel<Label>",
     "_objFlags": 0,
     "node": {
       "__id__": 2
@@ -214,6 +214,9 @@
       "__id__": 3
     },
     "playerName": "玩家1",
+    "chessPrefab": {
+      "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
+    },
     "thinking": false,
     "_id": ""
   },

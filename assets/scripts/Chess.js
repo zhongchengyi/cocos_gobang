@@ -1,3 +1,6 @@
+const ChessType = require('ChessType');
+
+
 /**
  * @file 棋子
  */
@@ -14,7 +17,8 @@ cc.Class({
             default: null
         },
         bgType: {
-            default: "white",
+            type: ChessType,
+            default: ChessType.white,
             notice() {
                 this._updateByType();
             }
@@ -23,7 +27,7 @@ cc.Class({
 
     _updateByType() {
         switch (this.bgType) {
-            case 'white':
+            case ChessType.white:
                 if (this.bgWhite) {
                     this.bgWhite.node.active = true;
                 }
@@ -31,7 +35,7 @@ cc.Class({
                     this.bgBlack.node.active = false;
                 }
                 break;
-            case 'black':
+            case ChessType.black:
                 if (this.bgWhite) {
                     this.bgWhite.node.active = false;
                 }

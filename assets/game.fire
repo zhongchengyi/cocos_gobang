@@ -81,13 +81,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 52
-      },
-      {
         "__id__": 53
       },
       {
         "__id__": 54
+      },
+      {
+        "__id__": 55
       }
     ],
     "_prefab": null,
@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        342.1119563526246,
+        341.8652727885457,
         0,
         0,
         0,
@@ -498,6 +498,7 @@
       {
         "__uuid__": "6f801092-0c37-4f30-89ef-c8d960825b36"
       },
+      null,
       null
     ],
     "_lineWidth": 2,
@@ -543,7 +544,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Piece",
+    "_name": "Chess",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -892,7 +893,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Piece",
+    "_name": "Chess",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -1267,7 +1268,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 51
+        "__id__": 52
       }
     ],
     "_prefab": null,
@@ -1339,7 +1340,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 50
+        "__id__": 51
       }
     ],
     "_prefab": null,
@@ -1651,7 +1652,11 @@
       "__id__": 40
     },
     "playerName": "玩家1",
+    "chessPrefab": {
+      "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
+    },
     "thinking": false,
+    "bgType": "",
     "_id": "5absLq0zxJ6o2je7+f9SAV"
   },
   {
@@ -1680,11 +1685,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 48
+        "__id__": 49
       }
     ],
     "_prefab": {
-      "__id__": 49
+      "__id__": 50
     },
     "_opacity": 255,
     "_color": {
@@ -1745,17 +1750,20 @@
     "_components": [
       {
         "__id__": 46
+      },
+      {
+        "__id__": 47
       }
     ],
     "_prefab": {
-      "__id__": 47
+      "__id__": 48
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 250,
-      "g": 12,
-      "b": 12,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -1772,8 +1780,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        263.757,
-        -3.216,
+        0,
+        0,
         0,
         0,
         0,
@@ -1799,7 +1807,7 @@
   },
   {
     "__type__": "cc.Label",
-    "_name": "",
+    "_name": "nameLabel<Label>",
     "_objFlags": 0,
     "node": {
       "__id__": 45
@@ -1832,6 +1840,19 @@
     "_id": "2bxrA8O1ZJHYnHNRtriPdF"
   },
   {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 45
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [],
+    "playOnLoad": true,
+    "_id": "6b+W+UV2hMppPc9ShmW27P"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 44
@@ -1853,8 +1874,12 @@
     "nameLabel": {
       "__id__": 46
     },
-    "playerName": "玩家2",
+    "playerName": "玩家1",
+    "chessPrefab": {
+      "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
+    },
     "thinking": false,
+    "bgType": [],
     "_id": "b0q5Ww+OJBQ79U699LpOz+"
   },
   {
@@ -1973,10 +1998,10 @@
       "__id__": 11
     },
     "controlboard": {
-      "__id__": 51
+      "__id__": 52
     },
     "player1": {
-      "__id__": 55
+      "__id__": 56
     },
     "player2": null,
     "_id": "edR0UUuNdAV6A71gVLHEKl"
@@ -1989,7 +2014,9 @@
     "_enabled": true,
     "nameLabel": null,
     "playerName": "玩家1",
+    "chessPrefab": null,
     "thinking": false,
+    "bgType": [],
     "_id": "beT7Bog4FOsqyZ/kFACsvO"
   }
 ]

@@ -25,9 +25,19 @@ cc.Class({
                 }
             }
         },
+        chessPrefab: {
+            type: cc.Prefab,
+            default: null,
+            tooltip: '棋子的预制体'
+        },
         thinking: {
             default: false,
             tooltip: '思考中',
+        },
+        bgType: {
+            default: 'white',
+            tooltip: '棋子的颜色',
+            enums: ['white', 'black']
         }
     },
 
@@ -61,4 +71,8 @@ cc.Class({
     update(dt) {
 
     },
+
+    createChess() {
+
+    }
 });
