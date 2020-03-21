@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        341.9613489107302,
+        349.8688317403088,
         0,
         0,
         0,
@@ -761,7 +761,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Player",
+    "_name": "Player1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 15
@@ -951,8 +951,8 @@
     "chessPrefab": {
       "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
     },
-    "thinking": false,
     "chessType": 1,
+    "thinking": false,
     "_id": "5absLq0zxJ6o2je7+f9SAV"
   },
   {
@@ -1174,8 +1174,8 @@
     "chessPrefab": {
       "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
     },
-    "thinking": false,
     "chessType": 2,
+    "thinking": false,
     "_id": "b0q5Ww+OJBQ79U699LpOz+"
   },
   {
@@ -1315,8 +1315,8 @@
     "nameLabel": null,
     "playerName": "玩家1",
     "chessPrefab": null,
-    "thinking": false,
     "chessType": 1,
+    "thinking": false,
     "_id": "beT7Bog4FOsqyZ/kFACsvO"
   }
 ]

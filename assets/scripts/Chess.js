@@ -16,7 +16,7 @@ cc.Class({
             type: cc.Sprite,
             default: null
         },
-        bgType: {
+        chessType: {
             type: ChessType,
             default: ChessType.white,
             notice() {
@@ -26,7 +26,7 @@ cc.Class({
     },
 
     _updateByType() {
-        switch (this.bgType) {
+        switch (this.chessType) {
             case ChessType.white:
                 if (this.bgWhite) {
                     this.bgWhite.node.active = true;
