@@ -47,11 +47,13 @@ cc.Class({
     },
 
     _switchCurrentPlayer() {
+        this.currentPlyer.thinking = false;
         if (this.currentPlyer === this.players[0]) {
             this.currentPlyer = this.players[1];
         } else {
             this.currentPlyer = this.players[0];
         }
+        this.currentPlyer.thinking = true;
     },
 
     start() {
@@ -75,7 +77,6 @@ cc.Class({
             this.node.emit(UserEvent.gameOver, {...this.winner});
         }
         this._switchCurrentPlayer();
-        //TODO player 显棋子，判断输赢
     },
 
     _clear() {

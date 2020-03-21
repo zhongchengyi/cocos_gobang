@@ -32,6 +32,14 @@ cc.Class({
         thinking: {
             default: false,
             tooltip: '思考中',
+            notice() {
+                console.log('thinking changed;')
+                if (this.thinking) {
+                    this.nameLabel.node.runAction(this.thinkingAction);
+                } else {
+                    this.nameLabel.node.stopAction(this.thinkingAction);
+                }
+            }
         },
     },
 
@@ -48,15 +56,15 @@ cc.Class({
         });
 
 
-        this.nameLabel.node.runAction(cc.sequence(
+        this.thinkingAction = cc.sequence(
             cc.tintTo(2, 255, 0, 0),
-            cc.delayTime(0.5),
-            cc.fadeOut(0.5),
-            cc.delayTime(0.5),
-            cc.fadeIn(0.5),
-            cc.delayTime(0.5),
+            cc.delayTime(0.25),
+            cc.fadeOut(0.25),
+            cc.delayTime(0.25),
+            cc.fadeIn(0.25),
+            cc.delayTime(0.25),
             cc.tintTo(2, 255, 255, 255)
-        ).repeat(2));
+        ).repeatForever();
     },
 
     start() {
