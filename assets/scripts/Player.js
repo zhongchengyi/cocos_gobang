@@ -1,3 +1,5 @@
+import PlayerWinState from "./states/PlayerWinState";
+
 const ChessType = require('ChessType');
 /**
  *玩家
@@ -8,6 +10,10 @@ cc.Class({
     properties: {
         nameLabel: {
             type: cc.Label,
+            default: null
+        },
+        winSprite: {
+            type: cc.Sprite,
             default: null
         },
         playerName: {
@@ -54,6 +60,14 @@ cc.Class({
                 }
             }
         },
+        playState: {
+            type: PlayerWinState,
+            default: PlayerWinState.none,
+            tooltip: '玩家状态',
+            notify() {
+                this._updateWinState();
+            }
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -68,7 +82,7 @@ cc.Class({
             this.node.emit('user-decision', {player: this})
         });
 
-
+        this._updateWinState();
     },
 
     start() {
@@ -87,5 +101,23 @@ cc.Class({
         let script = chess.getComponent('Chess');
         script.chessType = this.chessType;
         return {chess, chessType: script.chessType};
+    },
+
+    _updateWinState() {
+        this._clearState();
+        switch (this.playState) {
+            case PlayerWinState.none:
+                break;
+            case PlayerWinState.win:
+                this.winSprite.node.active = true;
+                break;
+            case PlayerWinState.lose:
+                break;
+            case PlayerWinState.draw:
+                break;
+        }
+    },
+    _clearState() {
+        this.winSprite.node.active = false;
     }
 });
