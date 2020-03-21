@@ -60,6 +60,9 @@ cc.Class({
     onClickBoard(event) {
         let pos = Utils.getGameLocation({event, node: this.node});
         let px = this._calcLocationIndex(pos);
+        if (this.winner) {
+            return;
+        }
         if (this.chessMap[px.ix] && this.chessMap[px.ix][px.iy]) {
             return;
         }
@@ -67,7 +70,7 @@ cc.Class({
     },
 
     start() {
-
+        this._clear();
     },
 
     update(dt) {
@@ -103,8 +106,12 @@ cc.Class({
         if (rlt && rlt.length >= 5) {
             console.log(`${chessType}, win`);
             console.log(rlt);
+            this.winner = {chessType, chesses: rlt};
         }
     },
 
+    _clear() {
+        this.winner = null;
+    }
 
 });
