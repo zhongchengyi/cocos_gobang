@@ -53,23 +53,10 @@ cc.Class({
             default: false,
             tooltip: '思考中',
             notify() {
-                if (!this.thinkingAction) {
-                    this.thinkingAction = cc.sequence(
-                        cc.tintTo(2, 255, 0, 0),
-                        // cc.delayTime(0.1),
-                        // cc.fadeOut(0.1),
-                        // cc.delayTime(0.1),
-                        // cc.fadeIn(0.1),
-                        // cc.delayTime(0.1),
-                        cc.tintTo(2, 255, 255, 255),
-                        // cc.delayTime(0.1)
-                    ).repeatForever();
-                }
                 if (this.thinking) {
-                    FlickerAction.runFlicker(this.nameLabel.node)
-                    this.nameLabel.node.runAction(this.thinkingAction);
+                    FlickerAction.runFlicker(this.chessHost)
                 } else {
-                    FlickerAction.stopFlicker(this.nameLabel.node)
+                    FlickerAction.stopFlicker(this.chessHost)
                 }
             }
         },
@@ -130,6 +117,7 @@ cc.Class({
             script.flicker = true;
             this.chessHost.removeAllChildren();
             this.chessHost.addChild(chess.chess);
+            FlickerAction.runFlicker(this.chessHost);
         }
     },
 

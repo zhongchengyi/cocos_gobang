@@ -73,8 +73,8 @@ cc.Class({
         this.checkerboard.showChess({x, y, ...this.currentPlyer.createChess()});
         let rlt = this.board.put({x, y, chessType: this.currentPlyer.chessType});
         if (rlt && rlt.length >= 5) {
-            console.log('win')
             this.winner = {player: this.currentPlyer, chesses: rlt};
+            this.checkerboard.flickerChesses(rlt);
             this.winner.player.playWinState = PlayerWinState.win;
             this.node.emit(UserEvent.gameOver, {...this.winner});
         }

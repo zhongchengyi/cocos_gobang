@@ -34,12 +34,20 @@ class SimpleBoard {
             return five;
         }
 
-        let a = y - x;
-
-        five = linq.from(locs).where(w => Math.abs(w.y - w.x) === a
-            && Math.abs(w.x - x) <= 5
-            && Math.abs(w.y - y) <= 5)
-            .toArray();
+        let a = 0;
+        if (x * y > 0) {
+            a = y - x;
+            five = linq.from(locs).where(w => w.y - w.x === a
+                && Math.abs(w.x - x) <= 5
+                && Math.abs(w.y - y) <= 5)
+                .toArray();
+        } else {
+            a = y + x;
+            five = linq.from(locs).where(w => w.y + w.x === a
+                && Math.abs(w.x - x) <= 5
+                && Math.abs(w.y - y) <= 5)
+                .toArray();
+        }
         if (five.length === 5) {
             return five;
         }

@@ -1,3 +1,5 @@
+import FlickerAction from "./FlickerAction";
+
 const UserEvent = require('UserEvent')
 const Utils = require('Utils');
 const ChessType = require('ChessType')
@@ -96,8 +98,19 @@ cc.Class({
         if (!this.chessMap[x]) {
             this.chessMap[x] = {};
         }
-        this.chessMap[x][y] = chessType;
+        this.chessMap[x][y] = {chess, chessType};
         this.node.addChild(chess);
     },
 
+    /**
+     *
+     * @param {Array} chesses
+     */
+    flickerChesses(chesses) {
+        if (chesses && chesses.length > 0) {
+            chesses.forEach(e => {
+                FlickerAction.runFlicker(this.chessMap[e.x][e.y].chess)
+            })
+        }
+    }
 });
