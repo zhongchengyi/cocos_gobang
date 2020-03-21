@@ -344,7 +344,7 @@
     "bgBlack": {
       "__id__": 6
     },
-    "bgType": "black",
+    "bgType": 1,
     "_id": ""
   },
   {

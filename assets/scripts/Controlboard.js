@@ -18,11 +18,6 @@ cc.Class({
             default: null,
             tooltip: '棋盘， 用于更新棋子'
         },
-        chessPrefab: {
-            type: cc.Prefab,
-            default: null,
-            tooltip: '棋子的预制体'
-        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -36,12 +31,19 @@ cc.Class({
             e.node.on('user-decision', (event) => {
                 console.log(arguments)
             })
-        })
+        });
 
-        if (!this.chessPrefab) {
-            cc.loader.loadRes('Piece', (err, res) => {
-                this.chessPrefab = res;
-            });
+        /**
+         * @type {Player}
+         */
+        this.currentPlyer = this.players[0];
+    },
+
+    _switchCurrentPlayer() {
+        if (this.currentPlyer === this.players[0]) {
+            this.currentPlyer = this.players[1];
+        } else {
+            this.currentPlyer = this.players[0];
         }
     },
 
@@ -55,10 +57,8 @@ cc.Class({
      * @param y
      */
     onDropChessSuccess: function ({x, y} = {}) {
-        console.log(arguments)
-
-
-        this.checkerboard.showChess({x, y, prefab: this.chessPrefab});
+        this.checkerboard.showChess({x, y, chess: this.currentPlyer.createChess()});
+        this._switchCurrentPlayer();
         //TODO player 显棋子，判断输赢
     },
 

@@ -1,10 +1,4 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
+const ChessType = require('ChessType');
 /**
  *玩家
  */
@@ -34,10 +28,10 @@ cc.Class({
             default: false,
             tooltip: '思考中',
         },
-        bgType: {
-            default: 'white',
+        chessType: {
+            type: ChessType,
+            default: ChessType.white,
             tooltip: '棋子的颜色',
-            enums: ['white', 'black']
         }
     },
 
@@ -72,7 +66,14 @@ cc.Class({
 
     },
 
+    /**
+     * 创建当前玩家的棋子
+     * @returns {cc.Node}
+     */
     createChess() {
-
+        let chess = cc.instantiate(this.chessPrefab);
+        console.log('chess type = ' + this.chessType);
+        chess.bgType = this.chessType;
+        return chess;
     }
 });

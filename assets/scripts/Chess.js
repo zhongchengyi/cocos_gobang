@@ -60,6 +60,5 @@ cc.Class({
     },
 
     update(dt) {
-        this._updateByType();
     },
 });

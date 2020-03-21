@@ -82,10 +82,9 @@ cc.Class({
      *
      * @param {int} x
      * @param {int} y
-     * @param {cc.Prefab} prefab
+     * @param {cc.Node} chess
      */
-    showChess({x, y, prefab} = {}) {
-        let chess = cc.instantiate(prefab);
+    showChess({x, y, chess} = {}) {
         chess.x = x * this.step;
         chess.y = y * this.step;
         this.node.addChild(chess);
