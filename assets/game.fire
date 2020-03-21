@@ -81,13 +81,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 40
+        "__id__": 46
       },
       {
-        "__id__": 41
+        "__id__": 47
       },
       {
-        "__id__": 42
+        "__id__": 48
       }
     ],
     "_prefab": null,
@@ -564,10 +564,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 38
+        "__id__": 44
       },
       {
-        "__id__": 39
+        "__id__": 45
       }
     ],
     "_prefab": null,
@@ -633,16 +633,16 @@
         "__id__": 18
       },
       {
-        "__id__": 27
+        "__id__": 30
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 36
+        "__id__": 42
       },
       {
-        "__id__": 37
+        "__id__": 43
       }
     ],
     "_prefab": null,
@@ -778,16 +778,19 @@
       },
       {
         "__id__": 22
+      },
+      {
+        "__id__": 25
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 25
+        "__id__": 28
       }
     ],
     "_prefab": {
-      "__id__": 26
+      "__id__": 29
     },
     "_opacity": 255,
     "_color": {
@@ -947,7 +950,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "win",
+    "_name": "chessHost",
     "_objFlags": 0,
     "_parent": {
       "__id__": 18
@@ -961,6 +964,108 @@
     ],
     "_prefab": {
       "__id__": 24
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        112.16300000000001,
+        0.8120000000000012,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "1bZhTQbmZJh5djnFLuBFGi"
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 22
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 132.163,
+    "_right": -92.16300000000001,
+    "_top": 19.188,
+    "_bottom": 20.812,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 60,
+    "_originalHeight": 60,
+    "_id": "79G/oDTMxO86I5NPJ3uIp0"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 18
+    },
+    "asset": {
+      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+    },
+    "fileId": "5ao9UWW7NH34w23n8MKa7h",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "win",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 18
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 26
+      }
+    ],
+    "_prefab": {
+      "__id__": 27
     },
     "_opacity": 255,
     "_color": {
@@ -1014,7 +1119,7 @@
     "_name": "win<Sprite>",
     "_objFlags": 0,
     "node": {
-      "__id__": 22
+      "__id__": 25
     },
     "_enabled": true,
     "_materials": [
@@ -1064,13 +1169,16 @@
       "__id__": 20
     },
     "winSprite": {
-      "__id__": 23
+      "__id__": 26
     },
-    "chessPrefab": {
+    "_N$chessHost": {
+      "__id__": 22
+    },
+    "_N$playerName": "玩家名",
+    "_N$chessPrefab": {
       "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
     },
-    "chessType": 1,
-    "_N$playerName": "玩家名",
+    "_N$chessType": 1,
     "_N$thinking": false,
     "_N$playWinState": 0,
     "_id": "5absLq0zxJ6o2je7+f9SAV"
@@ -1095,20 +1203,23 @@
     },
     "_children": [
       {
-        "__id__": 28
+        "__id__": 31
       },
       {
-        "__id__": 31
+        "__id__": 34
+      },
+      {
+        "__id__": 37
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 34
+        "__id__": 40
       }
     ],
     "_prefab": {
-      "__id__": 35
+      "__id__": 41
     },
     "_opacity": 255,
     "_color": {
@@ -1162,17 +1273,17 @@
     "_name": "nameLabel",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 27
+      "__id__": 30
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 29
+        "__id__": 32
       }
     ],
     "_prefab": {
-      "__id__": 30
+      "__id__": 33
     },
     "_opacity": 255,
     "_color": {
@@ -1196,8 +1307,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        126.007,
+        9.101,
         0,
         0,
         0,
@@ -1226,7 +1337,7 @@
     "_name": "nameLabel<Label>",
     "_objFlags": 0,
     "node": {
-      "__id__": 28
+      "__id__": 31
     },
     "_enabled": true,
     "_materials": [
@@ -1258,12 +1369,114 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 27
+      "__id__": 30
     },
     "asset": {
-      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+      "__uuid__": "e7c7a30d-62c8-4aab-a192-d7f9544885a1"
     },
-    "fileId": "7bPHFA0mhMD4tffi51WqCA",
+    "fileId": "be1swPEW9DaoBhF9yrtFB5",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "chessHost",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 30
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 35
+      }
+    ],
+    "_prefab": {
+      "__id__": 36
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "e8c2/Auf1JLJT/GdhyneI0"
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 34
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 18,
+    "_left": 50,
+    "_right": 50,
+    "_top": 50,
+    "_bottom": 50,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0,
+    "_id": "69mYlX0HFJLLpmwQ8q4WXd"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 30
+    },
+    "asset": {
+      "__uuid__": "e7c7a30d-62c8-4aab-a192-d7f9544885a1"
+    },
+    "fileId": "11Tn7ho2ZAHZOPbr8aLdiv",
     "sync": false
   },
   {
@@ -1271,17 +1484,17 @@
     "_name": "win",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 27
+      "__id__": 30
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 32
+        "__id__": 38
       }
     ],
     "_prefab": {
-      "__id__": 33
+      "__id__": 39
     },
     "_opacity": 255,
     "_color": {
@@ -1305,8 +1518,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        130.07,
-        -4.9,
+        6.863,
+        0.7,
         0,
         0,
         0,
@@ -1335,7 +1548,7 @@
     "_name": "win<Sprite>",
     "_objFlags": 0,
     "node": {
-      "__id__": 31
+      "__id__": 37
     },
     "_enabled": true,
     "_materials": [
@@ -1365,12 +1578,12 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 27
+      "__id__": 30
     },
     "asset": {
-      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+      "__uuid__": "e7c7a30d-62c8-4aab-a192-d7f9544885a1"
     },
-    "fileId": "52NSdHEFtM6ais5i3tpki+",
+    "fileId": "c4nIkcRT5GjZj9MQXA4cN/",
     "sync": false
   },
   {
@@ -1378,20 +1591,23 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 27
+      "__id__": 30
     },
     "_enabled": true,
     "nameLabel": {
-      "__id__": 29
-    },
-    "winSprite": {
       "__id__": 32
     },
-    "chessPrefab": {
+    "winSprite": {
+      "__id__": 38
+    },
+    "_N$chessHost": {
+      "__id__": 34
+    },
+    "_N$playerName": "玩家名",
+    "_N$chessPrefab": {
       "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
     },
-    "chessType": 2,
-    "_N$playerName": "玩家名",
+    "_N$chessType": 2,
     "_N$thinking": false,
     "_N$playWinState": 0,
     "_id": "b0q5Ww+OJBQ79U699LpOz+"
@@ -1399,12 +1615,12 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 27
+      "__id__": 30
     },
     "asset": {
-      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+      "__uuid__": "e7c7a30d-62c8-4aab-a192-d7f9544885a1"
     },
-    "fileId": "2f7zPo2vBMd7EP08Z5fq/N",
+    "fileId": "8cIk/gQQFNH5DA8awgEiok",
     "sync": false
   },
   {
@@ -1476,10 +1692,10 @@
     "_enabled": true,
     "players": [
       {
-        "__id__": 25
+        "__id__": 28
       },
       {
-        "__id__": 34
+        "__id__": 40
       }
     ],
     "checkerboard": {
@@ -1570,10 +1786,10 @@
       "__id__": 11
     },
     "controlboard": {
-      "__id__": 38
+      "__id__": 44
     },
     "player1": {
-      "__id__": 43
+      "__id__": 49
     },
     "player2": null,
     "_id": "edR0UUuNdAV6A71gVLHEKl"
@@ -1586,9 +1802,10 @@
     "_enabled": true,
     "nameLabel": null,
     "winSprite": null,
-    "chessPrefab": null,
-    "chessType": 1,
+    "_N$chessHost": null,
     "_N$playerName": "玩家名",
+    "_N$chessPrefab": null,
+    "_N$chessType": 1,
     "_N$thinking": false,
     "_N$playWinState": 0,
     "_id": "beT7Bog4FOsqyZ/kFACsvO"

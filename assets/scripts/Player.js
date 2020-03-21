@@ -14,7 +14,14 @@ cc.Class({
         },
         winSprite: {
             type: cc.Sprite,
-            default: null
+            default: null,
+        },
+        chessHost: {
+            type: cc.Node,
+            default: null,
+            notify() {
+                this._updateChessState();
+            }
         },
         playerName: {
             default: "玩家名",
@@ -29,11 +36,17 @@ cc.Class({
             type: cc.Prefab,
             default: null,
             tooltip: '棋子的预制体',
+            notify() {
+                this._updateChessState();
+            }
         },
         chessType: {
             type: ChessType,
             default: ChessType.white,
             tooltip: '棋子的颜色',
+            notify() {
+                this._updateChessState();
+            }
         },
         thinking: {
             default: false,
@@ -61,6 +74,9 @@ cc.Class({
             }
         },
 
+        /**
+         * 玩家的胜利状态
+         */
         playWinState: {
             type: PlayerWinState,
             default: PlayerWinState.none,
@@ -84,6 +100,7 @@ cc.Class({
         });
 
         this._updateWinState();
+        this._updateChessState();
     },
 
     start() {
@@ -102,6 +119,16 @@ cc.Class({
         let script = chess.getComponent('Chess');
         script.chessType = this.chessType;
         return {chess, chessType: script.chessType};
+    },
+
+    _updateChessState() {
+        if (this.chessHost && this.chessPrefab && this.chessType !== null) {
+            let chess = this.createChess().chess;
+            // chess.width = 100;
+            // chess.height = 100;
+            this.chessHost.removeAllChildren();
+            this.chessHost.addChild(chess);
+        }
     },
 
     _updateWinState() {

@@ -22,16 +22,19 @@
       },
       {
         "__id__": 5
+      },
+      {
+        "__id__": 8
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 8
+        "__id__": 11
       }
     ],
     "_prefab": {
-      "__id__": 9
+      "__id__": 12
     },
     "_opacity": 255,
     "_color": {
@@ -55,8 +58,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -293.186,
-        4.142,
+        0,
+        0,
         0,
         0,
         0,
@@ -191,7 +194,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "win",
+    "_name": "chessHost",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -205,6 +208,108 @@
     ],
     "_prefab": {
       "__id__": 7
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        112.16300000000001,
+        0.8120000000000012,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 132.163,
+    "_right": -92.16300000000001,
+    "_top": 19.188,
+    "_bottom": 20.812,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 60,
+    "_originalHeight": 60,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "39f9e936-736a-424c-bdb8-3125832ed5ae"
+    },
+    "fileId": "5ao9UWW7NH34w23n8MKa7h",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "win",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 9
+      }
+    ],
+    "_prefab": {
+      "__id__": 10
     },
     "_opacity": 255,
     "_color": {
@@ -258,7 +363,7 @@
     "_name": "win<Sprite>",
     "_objFlags": 0,
     "node": {
-      "__id__": 5
+      "__id__": 8
     },
     "_enabled": true,
     "_materials": [
@@ -308,15 +413,18 @@
       "__id__": 3
     },
     "winSprite": {
-      "__id__": 6
+      "__id__": 9
     },
-    "chessPrefab": {
+    "_N$chessHost": {
+      "__id__": 5
+    },
+    "_N$playerName": "玩家名",
+    "_N$chessPrefab": {
       "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
     },
-    "chessType": 1,
-    "_N$playerName": "玩家名",
+    "_N$chessType": 1,
     "_N$thinking": false,
-    "_N$playState": 0,
+    "_N$playWinState": 0,
     "_id": ""
   },
   {
