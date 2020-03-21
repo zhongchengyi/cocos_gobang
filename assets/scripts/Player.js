@@ -111,13 +111,8 @@ cc.Class({
     _updateChessState() {
         if (this.chessHost && this.chessPrefab && this.chessType !== null) {
             let chess = this.createChess();
-            // chess.width = 100;
-            // chess.height = 100;
-            let script = chess.script
-            script.flicker = true;
             this.chessHost.removeAllChildren();
             this.chessHost.addChild(chess.chess);
-            FlickerAction.runFlicker(this.chessHost);
         }
     },
 

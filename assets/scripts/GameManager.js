@@ -52,7 +52,9 @@ cc.Class({
     },
 
     start() {
-
+        setTimeout(() => {
+            this.controlboard.onDropChessSuccess({x: 0, y: 0});
+        }, 500);
     },
 
     // update (dt) {},
