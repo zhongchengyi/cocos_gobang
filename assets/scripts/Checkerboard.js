@@ -1,3 +1,5 @@
+import Board from "./Board";
+
 const UserEvent = require('UserEvent')
 const Utils = require('Utils');
 const ChessType = require('ChessType')
@@ -19,32 +21,27 @@ cc.Class({
     _graphics: null,
 
     onLoad() {
-
         this.step = 100;
         //[x][y] chesstype
         this.chessMap = {};
         //
-        this.chessTypeLocations = {
-            [ChessType.white]: [],
-            [ChessType.black]: []
-        };
-
         /**
          * @type {cc.Graphics}
          */
         this._graphics = this.getComponent(cc.Graphics);
 
-        let width = this.node.width;
-        let height = this.node.height;
-
+        let size = Math.min(this.node.width, this.node.height);
         let step = this.step;
-        for (let x = -width / 2; x <= width / 2; x += step) {
-            this._graphics.moveTo(x, height / 2);
-            this._graphics.lineTo(x, -height / 2);
+        this.boarder = new Board(size / step + 1);
+        this.offsetToScoreXY = {x: size / step / 2, y: -size / step / 2};
+
+        for (let x = -size / 2; x <= size / 2; x += step) {
+            this._graphics.moveTo(x, size / 2);
+            this._graphics.lineTo(x, -size / 2);
         }
-        for (let y = -height / 2; y <= height / 2; y += step) {
-            this._graphics.moveTo(width / 2, y);
-            this._graphics.lineTo(-width / 2, y);
+        for (let y = -size / 2; y <= size / 2; y += step) {
+            this._graphics.moveTo(size / 2, y);
+            this._graphics.lineTo(-size / 2, y);
         }
         this._graphics.stroke();
 
@@ -102,7 +99,12 @@ cc.Class({
             this.chessMap[x] = {};
         }
         this.chessMap[x][y] = chessType;
-        this.chessTypeLocations[chessType].push({x, y});
+        let scrolXY = this._toScroeXY({x, y});
+        this.boarder.put({...scrolXY, chessType});
         this.node.addChild(chess);
+    },
+
+    _toScroeXY({x, y}) {
+        return {x: x + this.offsetToScoreXY.x, y: -(y + this.offsetToScoreXY.y)};
     }
 });
