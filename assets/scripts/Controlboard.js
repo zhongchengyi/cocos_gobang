@@ -1,6 +1,7 @@
 import BoardFacade from "./BoardFacade";
 import Config from './Config'
 import UserEvent from "./UserEvent";
+import PlayerWinState from "./states/PlayerWinState";
 
 const Player = require('Player')
 const Checkerboard = require('Checkerboard')
@@ -74,6 +75,7 @@ cc.Class({
         if (rlt && rlt.length >= 5) {
             console.log('win')
             this.winner = {player: this.currentPlyer, chesses: rlt};
+            this.winner.player.playWinState = PlayerWinState.win;
             this.node.emit(UserEvent.gameOver, {...this.winner});
         }
         this._switchCurrentPlayer();
@@ -81,6 +83,8 @@ cc.Class({
 
     _clear() {
         this.winner = null;
+        this.players.forEach(e => e.clear());
+
     }
 
     // update (dt) {},

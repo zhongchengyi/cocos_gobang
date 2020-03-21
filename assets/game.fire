@@ -953,7 +953,7 @@
       "__id__": 18
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 23
@@ -1072,7 +1072,7 @@
     "chessType": 1,
     "_N$playerName": "玩家名",
     "_N$thinking": false,
-    "_N$playState": 0,
+    "_N$playWinState": 0,
     "_id": "5absLq0zxJ6o2je7+f9SAV"
   },
   {
@@ -1390,10 +1390,10 @@
     "chessPrefab": {
       "__uuid__": "45945ca4-ce0c-4dd2-94b7-90474cbd20bd"
     },
-    "chessType": 1,
+    "chessType": 2,
     "_N$playerName": "玩家名",
     "_N$thinking": false,
-    "_N$playState": 0,
+    "_N$playWinState": 0,
     "_id": "b0q5Ww+OJBQ79U699LpOz+"
   },
   {
@@ -1590,7 +1590,7 @@
     "chessType": 1,
     "_N$playerName": "玩家名",
     "_N$thinking": false,
-    "_N$playState": 0,
+    "_N$playWinState": 0,
     "_id": "beT7Bog4FOsqyZ/kFACsvO"
   }
 ]

@@ -60,7 +60,8 @@ cc.Class({
                 }
             }
         },
-        playState: {
+
+        playWinState: {
             type: PlayerWinState,
             default: PlayerWinState.none,
             tooltip: '玩家状态',
@@ -105,7 +106,7 @@ cc.Class({
 
     _updateWinState() {
         this._clearState();
-        switch (this.playState) {
+        switch (this.playWinState) {
             case PlayerWinState.none:
                 break;
             case PlayerWinState.win:
@@ -119,5 +120,9 @@ cc.Class({
     },
     _clearState() {
         this.winSprite.node.active = false;
+    },
+
+    clear() {
+        this._clearState();
     }
 });
