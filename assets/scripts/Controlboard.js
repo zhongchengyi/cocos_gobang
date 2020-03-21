@@ -1,3 +1,7 @@
+import BoardFacade from "./BoardFacade";
+import Config from './Config'
+import UserEvent from "./UserEvent";
+
 const Player = require('Player')
 const Checkerboard = require('Checkerboard')
 
@@ -37,6 +41,9 @@ cc.Class({
          * @type {Player}
          */
         this.currentPlyer = this.players[0];
+
+        this.board = new BoardFacade();
+        this.board.init(Config.board.size)
     },
 
     _switchCurrentPlayer() {
@@ -48,7 +55,7 @@ cc.Class({
     },
 
     start() {
-
+        this._clear();
     },
 
     /**
@@ -57,11 +64,23 @@ cc.Class({
      * @param y
      */
     onDropChessSuccess: function ({x, y} = {}) {
+        if (this.winner) {
+            return;
+        }
         this.checkerboard.showChess({x, y, ...this.currentPlyer.createChess()});
+        let rlt = this.board.put({x, y, chessType: this.currentPlyer.chessType});
+        if (rlt && rlt.length >= 5) {
+            console.log('win')
+            this.winner = {player: this.currentPlyer, chesses: rlt};
+            this.node.emit(UserEvent.gameOver, {...this.winner});
+        }
         this._switchCurrentPlayer();
         //TODO player 显棋子，判断输赢
     },
 
+    _clear() {
+        this.winner = null;
+    }
 
     // update (dt) {},
 });

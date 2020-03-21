@@ -1,5 +1,3 @@
-import BoardFacade from "./BoardFacade";
-
 const UserEvent = require('UserEvent')
 const Utils = require('Utils');
 const ChessType = require('ChessType')
@@ -32,8 +30,6 @@ cc.Class({
 
         let size = Math.min(this.node.width, this.node.height);
         let step = this.step;
-        this.board = new BoardFacade();
-        this.board.init(size / step + 1)
 
         for (let x = -size / 2; x <= size / 2; x += step) {
             this._graphics.moveTo(x, size / 2);
@@ -70,7 +66,7 @@ cc.Class({
     },
 
     start() {
-        this._clear();
+
     },
 
     update(dt) {
@@ -102,16 +98,6 @@ cc.Class({
         }
         this.chessMap[x][y] = chessType;
         this.node.addChild(chess);
-        let rlt = this.board.put({x, y, chessType});
-        if (rlt && rlt.length >= 5) {
-            console.log(`${chessType}, win`);
-            console.log(rlt);
-            this.winner = {chessType, chesses: rlt};
-        }
     },
-
-    _clear() {
-        this.winner = null;
-    }
 
 });

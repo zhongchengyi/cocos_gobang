@@ -36,8 +36,9 @@ class SimpleBoard {
 
         let a = y - x;
 
-        five = linq.from(locs).where(w => w.y - w.x === a && Math.abs(w.x - x) <= 5
-            && Math.abs(x.y - y) <= 5)
+        five = linq.from(locs).where(w => Math.abs(w.y - w.x) === a
+            && Math.abs(w.x - x) <= 5
+            && Math.abs(w.y - y) <= 5)
             .toArray();
         if (five.length === 5) {
             return five;
