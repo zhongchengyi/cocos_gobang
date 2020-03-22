@@ -26,7 +26,6 @@ cc.Class({
     _graphics: null,
 
     onLoad() {
-        console.log('bo.uuid' + this.uuid);
         this.step = 100;
         //[x][y] chesstype
         this.chessMap = {};
@@ -105,7 +104,6 @@ cc.Class({
      * @param {ChessType} chessType
      */
     showChess({x, y, chess, chessType} = {}) {
-        console.log('bo.show.uuid' + this.uuid);
         chess.x = x * this.step;
         chess.y = y * this.step;
         if (!this.chessMap[x]) {

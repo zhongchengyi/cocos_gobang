@@ -1,20 +1,13 @@
 class FlickerAction {
 
+
     /**
      *
      * @param {cc.Node} node
      */
     static runFlicker(node) {
-        node.runAction(cc.sequence(
-            // cc.tintTo(2, 255, 0, 0),
-
-            cc.fadeOut(0.1),
-            cc.delayTime(0.5),
-            cc.fadeIn(0.1),
-            cc.delayTime(0.5),
-            // cc.tintTo(2, 255, 255, 255),
-            // cc.delayTime(0.1)
-        ).repeatForever());
+        node.flickerAction = cc.blink(1, 1).repeatForever();
+        node.runAction(node.flickerAction);
     }
 
     /**
@@ -23,7 +16,7 @@ class FlickerAction {
      */
     static stopFlicker(node) {
         if (node.getNumberOfRunningActions() > 0) {
-            node.stopAllActions();
+            node.stopAction(node.flickerAction);
         }
     }
 }
