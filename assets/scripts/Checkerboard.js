@@ -11,7 +11,12 @@ cc.Class({
 
     extends: cc.Component,
 
-    properties: {},
+    properties: {
+        preSelect: {
+            type: cc.Node,
+            default: null,
+        }
+    },
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -21,6 +26,7 @@ cc.Class({
     _graphics: null,
 
     onLoad() {
+        console.log('bo.uuid' + this.uuid);
         this.step = 100;
         //[x][y] chesstype
         this.chessMap = {};
@@ -58,13 +64,19 @@ cc.Class({
     onClickBoard(event) {
         let pos = Utils.getGameLocation({event, node: this.node});
         let px = this._calcLocationIndex(pos);
-        if (this.winner) {
-            return;
+        if (this.preSelect.x === px.ix * this.step && this.preSelect.y === px.iy * this.step) {
+            if (this.winner) {
+                return;
+            }
+            if (this.chessMap[px.ix] && this.chessMap[px.ix][px.iy]) {
+                return;
+            }
+            this.node.emit(UserEvent.dropChessSuccess, {x: px.ix, y: px.iy});
+        } else {
+            this.preSelect.x = px.ix * this.step;
+            this.preSelect.y = px.iy * this.step;
         }
-        if (this.chessMap[px.ix] && this.chessMap[px.ix][px.iy]) {
-            return;
-        }
-        this.node.emit(UserEvent.dropChessSuccess, {x: px.ix, y: px.iy});
+
     },
 
     start() {
@@ -93,6 +105,7 @@ cc.Class({
      * @param {ChessType} chessType
      */
     showChess({x, y, chess, chessType} = {}) {
+        console.log('bo.show.uuid' + this.uuid);
         chess.x = x * this.step;
         chess.y = y * this.step;
         if (!this.chessMap[x]) {

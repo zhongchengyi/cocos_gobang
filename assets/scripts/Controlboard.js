@@ -77,6 +77,7 @@ cc.Class({
             this.checkerboard.flickerChesses(rlt);
             this.winner.player.playWinState = PlayerWinState.win;
             this.node.emit(UserEvent.gameOver, {...this.winner});
+            return;
         }
         this._switchCurrentPlayer();
     },
